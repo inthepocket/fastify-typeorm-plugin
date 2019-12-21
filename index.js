@@ -4,11 +4,10 @@ const fp = require('fastify-plugin')
 const { createConnection } = require('typeorm')
 
 async function typeormConnector (fastify, options) {
-  const { namespace, config } = options
+  const { namespace } = options
   delete options.namespace
-  delete options.config
 
-  const connection = options.connection || await createConnection(config)
+  const connection = options.connection || await createConnection(options)
 
   if (namespace) {
     if (!fastify.orm) {
