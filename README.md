@@ -1,5 +1,6 @@
 # fastify-typeorm-plugin
 
+[![Package Version](https://img.shields.io/npm/v/fastify-typeorm-plugin.svg)](https://npm.im/fastify-typeorm-plugin)
 [![Build Status](https://travis-ci.org/inthepocket/fastify-typeorm-plugin.svg?branch=master)](https://travis-ci.org/inthepocket/fastify-typeorm-plugin)
 
 Fastify plugin for TypeORM for sharing the same TypeORM connection in every part of your server.  
