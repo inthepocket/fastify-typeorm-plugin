@@ -8,14 +8,12 @@ const fastifyORM = require('./index')
 test('Postgres available', async t => {
   const fastify = Fastify()
   fastify.register(fastifyORM, {
-    config: {
-      host: 'localhost',
-      type: 'postgres',
-      port: '5432',
-      password: '',
-      database: 'postgres',
-      username: 'postgres'
-    }
+    host: 'localhost',
+    type: 'postgres',
+    port: '5432',
+    password: '',
+    database: 'postgres',
+    username: 'postgres'
   })
 
   await fastify.ready()
@@ -25,7 +23,7 @@ test('Postgres available', async t => {
 
 test('with unreachable db', async t => {
   const fastify = Fastify()
-  fastify.register(fastifyORM, { config: { host: 'localhost', type: 'orm' } })
+  fastify.register(fastifyORM, { host: 'localhost', type: 'orm' })
 
   try {
     await fastify.ready()
@@ -39,19 +37,17 @@ test('with unreachable db', async t => {
 test('namespaced', async t => {
   const fastify = Fastify()
   fastify.register(fastifyORM, {
-    config: {
-      host: 'localhost',
-      type: 'postgres',
-      port: '5432',
-      password: '',
-      database: 'postgres',
-      username: 'postgres'
-    },
-    namespace: 'cluster'
+    host: 'localhost',
+    type: 'postgres',
+    port: '5432',
+    password: '',
+    database: 'postgres',
+    username: 'postgres',
+    namespace: 'con1'
   })
 
   await fastify.ready()
-  t.strictEqual(fastify.orm.cluster.name, 'default')
+  t.strictEqual(fastify.orm.con1.name, 'default')
   await fastify.close()
 })
 
