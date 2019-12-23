@@ -3,6 +3,7 @@
 [![Package Version](https://img.shields.io/npm/v/fastify-typeorm-plugin.svg)](https://npm.im/fastify-typeorm-plugin)
 [![Build Status](https://travis-ci.org/inthepocket/fastify-typeorm-plugin.svg?branch=master)](https://travis-ci.org/inthepocket/fastify-typeorm-plugin)
 [![Greenkeeper badge](https://badges.greenkeeper.io/inthepocket/fastify-typeorm-plugin.svg)](https://greenkeeper.io/)
+[![Coverage Status](https://coveralls.io/repos/github/inthepocket/fastify-typeorm-plugin/badge.svg?branch=master)](https://coveralls.io/github/inthepocket/fastify-typeorm-plugin?branch=master)
 
 Fastify plugin for TypeORM for sharing the same TypeORM connection in every part of your server.  
 Under the hood the official [TypeORM](https://www.npmjs.com/package/typeorm) module is used.
