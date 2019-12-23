@@ -68,3 +68,26 @@ test('custom client', async t => {
   t.strictEqual(fastify.orm.name, 'default')
   await fastify.close()
 })
+
+test('multiple bindings to the same namespace', async t => {
+  const connection = await createConnection({
+    host: 'localhost',
+    type: 'postgres',
+    port: '5432',
+    password: '',
+    database: 'postgres',
+    username: 'postgres'
+  })
+
+  const fastify = Fastify()
+  fastify.register(fastifyORM, { connection, namespace: 'test' })
+  fastify.register(fastifyORM, { connection, namespace: 'test' })
+
+  try {
+    await fastify.ready()
+    t.fail('should not boot successfully')
+  } catch (err) {
+    t.ok(err)
+    await fastify.close()
+  }
+})

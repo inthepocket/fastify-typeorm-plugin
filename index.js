@@ -11,7 +11,7 @@ async function typeormConnector (fastify, options) {
 
   if (namespace) {
     if (!fastify.orm) {
-      fastify.decorate('orm', connection)
+      fastify.decorate('orm', {})
     }
 
     if (fastify.orm[namespace]) {
