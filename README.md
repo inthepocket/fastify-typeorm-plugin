@@ -57,6 +57,11 @@ fastify.register(require('fastify-typeorm-plugin'), {
 });
 ```
 
+## Team
+
+- Glenn Bostoen (https://github.com/gboston) <https://twitter.com/gbostoen>
+- Jonas Goderis (https://github.com/jonasgoderis) <https://twitter.com/JonasGoderis>
+
 ## License
 
 Licensed under [MIT](./LICENSE).
