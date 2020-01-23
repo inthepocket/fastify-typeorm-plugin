@@ -1,6 +1,6 @@
 {
-  "name": "fastify-typeorm-plugin",
-  "version": "2.1.0",
+  "name": "fastify-typeorm",
+  "version": "2.1.1",
   "description": "Fastify plugin for typeorm",
   "main": "index.js",
   "scripts": {
