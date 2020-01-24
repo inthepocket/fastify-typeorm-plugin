@@ -1,4 +1,4 @@
-# fastify-typeorm-plugin
+# fastify-typeorm
 
 [![Package Version](https://img.shields.io/npm/v/fastify-typeorm-plugin.svg)](https://npm.im/fastify-typeorm-plugin)
 [![Build Status](https://travis-ci.org/inthepocket/fastify-typeorm-plugin.svg?branch=master)](https://travis-ci.org/inthepocket/fastify-typeorm-plugin)
@@ -11,7 +11,7 @@ Under the hood the official [TypeORM](https://www.npmjs.com/package/typeorm) mod
 ## Install
 
 ```sh
-npm install fastify-typeorm-plugin
+npm install fastify-typeorm
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ const fastify = require('fastify')();
 
 const user = require('./entity/user');
 
-fastify.register(require('fastify-typeorm-plugin'), {
+fastify.register(require('fastify-typeorm'), {
   type: 'sqlite',
   database: './mydb.sql',
 });
@@ -53,15 +53,15 @@ const connection = await createConnection({
   type: 'sqlite',
   database: './mydb.sql',
 });
-fastify.register(require('fastify-typeorm-plugin'), {
+fastify.register(require('fastify-typeorm'), {
   connection,
 });
 ```
 
 ## Team
 
-- Glenn Bostoen (https://github.com/gboston) <https://twitter.com/gbostoen>
-- Jonas Goderis (https://github.com/jonasgoderis) <https://twitter.com/JonasGoderis>
+- Glenn Bostoen <https://github.com/gboston> <https://twitter.com/gbostoen>
+- Jonas Goderis <https://github.com/jonasgoderis> <https://twitter.com/JonasGoderis>
 
 ## License
 
