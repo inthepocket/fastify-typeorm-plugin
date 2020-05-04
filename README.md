@@ -11,7 +11,7 @@ Under the hood the official [TypeORM](https://www.npmjs.com/package/typeorm) mod
 ## Install
 
 ```sh
-npm install fastify-typeorm
+npm install fastify-typeorm-plugin
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ const fastify = require('fastify')();
 
 const user = require('./entity/user');
 
-fastify.register(require('fastify-typeorm'), {
+fastify.register(require('fastify-typeorm-plugin'), {
   type: 'sqlite',
   database: './mydb.sql',
 });
@@ -53,7 +53,7 @@ const connection = await createConnection({
   type: 'sqlite',
   database: './mydb.sql',
 });
-fastify.register(require('fastify-typeorm'), {
+fastify.register(require('fastify-typeorm-plugin'), {
   connection,
 });
 ```
