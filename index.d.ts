@@ -14,7 +14,7 @@ declare namespace fastifyTypeorm {
      */
     namespace?: string;
   }
-  type FastifyTypeormOptions = typeorm.ConnectionOptions & FastifyTypeormOpts;
+  type FastifyTypeormOptions = typeorm.ConnectionOptions | FastifyTypeormOpts;
 }
 
 declare module 'fastify' {
