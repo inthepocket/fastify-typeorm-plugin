@@ -27,7 +27,7 @@
     "typeorm": "^0.2.21"
   },
   "devDependencies": {
-    "fastify": "^2.4.1",
+    "fastify": "^3.0.2",
     "pg": "^8.0.0",
     "pre-commit": "^1.2.2",
     "snazzy": "^8.0.0",
