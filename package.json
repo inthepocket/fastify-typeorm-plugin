@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/inthepocket/fastify-typeorm-plugin#readme",
   "dependencies": {
-    "fastify-plugin": "^2.3.2",
+    "fastify-plugin": "^3.0.0",
     "typeorm": "^0.2.21"
   },
   "devDependencies": {
