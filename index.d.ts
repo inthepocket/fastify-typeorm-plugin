@@ -18,20 +18,11 @@ declare namespace fastifyTypeorm {
 }
 
 declare module 'fastify' {
-  interface FastifyInstance<
-    HttpServer = http.Server,
-    HttpRequest = http.IncomingMessage,
-    HttpResponse = http.ServerResponse
-  > {
+  export interface FastifyInstance {
     orm: typeorm.Connection & fastifyTypeorm.FastifyTypeormNestedObject;
   }
 }
 
-declare let fastifyTypeorm: fastify.Plugin<
-  http.Server,
-  http.IncomingMessage,
-  http.ServerResponse,
-  fastifyTypeorm.FastifyTypeormOptions
->;
+declare const fastifyTypeorm: fastify.FastifyPluginCallback<fastifyTypeorm.FastifyTypeormOptions>;
 
 export = fastifyTypeorm;
