@@ -7,7 +7,14 @@ async function typeormConnector (fastify, options) {
   const { namespace } = options
   delete options.namespace
 
-  const connection = options.connection || await createConnection(options)
+  let connection
+  if (options.connection) {
+    connection = options.connection
+  } else if (Object.keys(options).length) {
+    connection = await createConnection(options)
+  } else {
+    connection = await createConnection()
+  }
 
   if (namespace) {
     if (!fastify.orm) {

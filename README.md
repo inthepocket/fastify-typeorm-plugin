@@ -5,7 +5,7 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/inthepocket/fastify-typeorm-plugin.svg)](https://greenkeeper.io/)
 [![Coverage Status](https://coveralls.io/repos/github/inthepocket/fastify-typeorm-plugin/badge.svg?branch=master)](https://coveralls.io/github/inthepocket/fastify-typeorm-plugin?branch=master)
 
-Fastify plugin for TypeORM for sharing the same TypeORM connection in every part of your server.  
+Fastify plugin for TypeORM for sharing the same TypeORM connection in every part of your server.
 Under the hood the official [TypeORM](https://www.npmjs.com/package/typeorm) module is used.
 
 ## Install
@@ -16,7 +16,7 @@ npm install fastify-typeorm-plugin
 
 ## Usage
 
-Add it to your project with `register` and you are done!  
+Add it to your project with `register` and you are done!
 The plugin accepts the [same connection options](https://typeorm.io/#/connection-options) as the TypeORM client.
 
 ```js
@@ -28,6 +28,29 @@ fastify.register(require('fastify-typeorm-plugin'), {
   type: 'sqlite',
   database: './mydb.sql',
 });
+
+fastify.get('/users', async function(req, reply) {
+  const users = await this.orm
+    .getRepository(User)
+    .createQueryBuilder('user')
+    .getMany();
+
+  return users;
+});
+
+fastify.listen(3000, err => {
+  if (err) throw err;
+});
+```
+
+If you won't pass config, it will use `typeorm` default [createConnection](https://typeorm.io/#/connection/creating-a-new-connection) mechanism:
+
+```js
+const fastify = require('fastify')();
+
+const user = require('./entity/user');
+
+fastify.register(require('fastify-typeorm-plugin'));
 
 fastify.get('/users', async function(req, reply) {
   const users = await this.orm
