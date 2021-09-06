@@ -21,6 +21,20 @@ test('Postgres available', async t => {
   await fastify.close()
 })
 
+test('Postgres available through env variables', async t => {
+  process.env.TYPEORM_CONNECTION = 'postgres'
+  process.env.TYPEORM_HOST = 'localhost'
+  process.env.TYPEORM_USERNAME = 'postgres'
+  process.env.TYPEORM_DATABASE = 'postgres'
+  process.env.TYPEORM_PORT = '5432'
+  const fastify = Fastify()
+  fastify.register(fastifyORM)
+
+  await fastify.ready()
+  t.strictEqual(fastify.orm.name, 'default')
+  await fastify.close()
+})
+
 test('with unreachable db', async t => {
   const fastify = Fastify()
   fastify.register(fastifyORM, { host: 'localhost', type: 'orm' })
