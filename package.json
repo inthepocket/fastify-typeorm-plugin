@@ -1,6 +1,6 @@
 {
   "name": "fastify-typeorm-plugin",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Fastify plugin for typeorm",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,9 @@
   },
   "homepage": "https://github.com/inthepocket/fastify-typeorm-plugin#readme",
   "dependencies": {
-    "fastify-plugin": "^3.0.0",
+    "fastify-plugin": "^3.0.0"
+  },
+  "peerDependencies": {
     "typeorm": "^0.2.21"
   },
   "devDependencies": {
